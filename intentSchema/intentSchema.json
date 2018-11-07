@@ -1,1 +1,312 @@
-intent
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "bank buddy",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "getAccountBalanceIntent",
+                    "slots": [
+                        {
+                            "name": "accountType",
+                            "type": "bank",
+                            "samples": [
+                                "HDFC ",
+                                "My {accountType} Account please",
+                                "My ICICI Account please",
+                                "Current account"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "May I know my {accountType} account balance",
+                        "My {accountType} account balance",
+                        "What is my {accountType} account balance",
+                        "Tell me my {accountType} account balance",
+                        "Tell me my Account Balance",
+                        "What is my Account Balance",
+                        "My Account Balance",
+                        "May I know my Account Balance"
+                    ]
+                },
+                {
+                    "name": "submitChequeIntent",
+                    "slots": [
+                        {
+                            "name": "bankName",
+                            "type": "bank",
+                            "samples": [
+                                "My {bankName} Bank please",
+                                "{bankName}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "I want to Post a cheque to {bankName}",
+                        "Need help in submitting my Cheque {bankName}",
+                        "I want to submit my Bank Cheque in {bankName}",
+                        "Can I seek some help in my cheque submission",
+                        "I want to Post a cheque",
+                        "I want to add money in my account through a cheque",
+                        "Need help in submitting my Cheque",
+                        "I want to submit my Bank Cheque"
+                    ]
+                },
+                {
+                    "name": "updatePassbookIntent",
+                    "slots": [
+                        {
+                            "name": "bankNameNew",
+                            "type": "bank",
+                            "samples": [
+                                "{bankNameNew} please",
+                                "My {bankNameNew} Bank please ",
+                                "{bankNameNew}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "Please help me with recent transactions updated on my {bankNameNew} passbook",
+                        "Need assistance in {bankNameNew} Passbook Update",
+                        "Can you help me in my {bankNameNew} Passbook updation",
+                        "I want to get my {bankNameNew} Passbook updated",
+                        "Please help me with recent transactions updated on my passbook",
+                        "Need assistance in Passbook Update",
+                        "Can you help me in my Passbook updation",
+                        "I want to get my Passbook updated"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "bank",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "HDFC"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Axis"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "State bank of India"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Citi bank"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Citi"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "SBI"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ICICI"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "documentName",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "PAN Card"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Aadhar Card"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "getAccountBalanceIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "accountType",
+                            "type": "bank",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.557115226635.1243648148121",
+                                "elicitation": "Elicit.Slot.557115226635.1243648148121"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "submitChequeIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "bankName",
+                            "type": "bank",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.131896556981.291513899499",
+                                "elicitation": "Elicit.Slot.131896556981.291513899499"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "updatePassbookIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "bankNameNew",
+                            "type": "bank",
+                            "confirmationRequired": true,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "confirmation": "Confirm.Slot.914235022806.611047420577",
+                                "elicitation": "Elicit.Slot.914235022806.611047420577"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.557115226635.1243648148121",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "ICICI or HDFC account ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which bank , ICICI or HDFC ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which bank"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.557115226635.1243648148121",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "So, you want to know your {accountType} account Balance. Is that correct?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.131896556981.291513899499",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which bank do you want to submit a cheque ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which bank do you want to Post a cheque ?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.131896556981.291513899499",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "So, you want to submit your {bankName} cheque"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.914235022806.611047420577",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which banks passbook you want to update ?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Which bank "
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.914235022806.611047420577",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "So, you want to get your {bankNameNew} bank passbook updated"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1097692564965.429560139314",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Which bank?"
+                    }
+                ]
+            },
+            {
+                "id": "Confirm.Slot.1097692564965.429560139314",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "So, you want to get your {bank} KYC updated"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1097692564965.173149328623",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Would you like to use your Aadhar Card or PAN Card ?"
+                    }
+                ]
+            }
+        ]
+    }
+}
